@@ -16,7 +16,7 @@ const Nav = () => (
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <a href="/users/sign_in">Login</a>
       </li>
     </ul>
   </nav>
@@ -27,8 +27,6 @@ const Twitter = props => (
     <div>
       <Nav />
       <Switch>
-        <Route path="/login"><Login /></Route>
-        <Route path="/users"> <div>Users</div> </Route>
         <Route path="/"> <div>Home</div> </Route>
       </Switch>
     </div>

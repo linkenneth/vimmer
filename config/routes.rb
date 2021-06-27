@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#landing'
 
-  # devise_for :users, module: 'auth'
-  # devise_scope :user do
-  # end
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 end
