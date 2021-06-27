@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   def create
     content = params.require(:post).require(:content)
-    post = Post.create!(author: current_user, content: content)
+    post = Post.create!(user: current_user, content: content)
 
     # TODO: show info of author
     render json: post.as_json

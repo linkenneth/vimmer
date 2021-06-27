@@ -9,14 +9,6 @@ import { Dimmer, Loader } from 'semantic-ui-react'
 import CreatePost from 'components/CreatePost'
 import Feed from 'components/Feed'
 
-const LeftNav = () => (
-  <aside>
-    <ul>
-      <li>Home</li>
-    </ul>
-  </aside>
-)
-
 const CenterFeed = ({ posts }) => {
   return (
     <main css={css`
@@ -49,7 +41,6 @@ const Home = () => {
 
   return (
     <div>
-      <LeftNav />
       <CenterFeed posts={posts} />
     </div>
   )
