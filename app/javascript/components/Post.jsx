@@ -15,6 +15,7 @@ const Post = ({ post }) => {
   return (
     <div css={css`
       padding: 16px;
+      border: gray 1px;
     `}>
       {post.content}
     </div>

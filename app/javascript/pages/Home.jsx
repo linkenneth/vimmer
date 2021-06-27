@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import axios from 'utils/axios'
+import { css } from '@emotion/react'
 
 import { Dimmer, Loader } from 'semantic-ui-react'
 
@@ -18,7 +19,9 @@ const LeftNav = () => (
 
 const CenterFeed = ({ posts }) => {
   return (
-    <main>
+    <main css={css`
+      margin: 16px;
+    `}>
       <CreatePost />
       <Feed posts={posts}/>
     </main>

@@ -3,9 +3,11 @@ class PostsController < ApplicationController
 
   ##
   # GET /posts
+  #
+  # Returns posts of those the current user follows.
 
   def index
-    render json: Post.all.map(&:as_json)
+    Post.where(user: current_user.followed_users)
   end
 
   ##
@@ -14,9 +16,10 @@ class PostsController < ApplicationController
 
   def create
     content = params.require(:post).require(:content)
-    Post.create!(user: current_user, content: content)
+    post = Post.create!(author: current_user, content: content)
+
     # TODO: show info of author
-    render json: p.as_json
+    render json: post.as_json
   end
 
   ##
