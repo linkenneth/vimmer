@@ -10,4 +10,6 @@
 class Like < ActiveRecord::Base
   belongs_to :user
   belongs_to :likable, polymorphic: true
+
+  scope :on_posts, -> { where(likable_type: 'Post') }
 end

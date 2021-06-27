@@ -5,9 +5,17 @@ class PostsController < ApplicationController
   # GET /posts
   #
   # Returns posts of those the current user follows.
+  # Posts are naively ordered by the number of likes they have.
 
   def index
-    Post.where(user: current_user.followed_users)
+    posts = (
+      Post
+        .where(user: current_user.followed_users)
+        .left_joins(:likes)
+        .group('posts.id')
+        .order('COUNT(likes.id) DESC')
+    )
+    render json: posts.as_json
   end
 
   ##
