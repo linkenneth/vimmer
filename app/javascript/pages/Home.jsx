@@ -1,32 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+import axios from 'utils/axios'
+
+import { Dimmer, Loader } from 'semantic-ui-react'
+
 import CreatePost from 'components/CreatePost'
+import Feed from 'components/Feed'
 
 const LeftNav = () => (
   <aside>
     <ul>
       <li>Home</li>
-      <li>Home</li>
     </ul>
   </aside>
 )
 
-// TODO
-const Feed = () => (<></>);
+const CenterFeed = ({ posts }) => {
+  return (
+    <main>
+      <CreatePost />
+      <Feed posts={posts}/>
+    </main>
+  )
+}
 
-const CenterFeed = () => (
-  <main>
-    <CreatePost />
-    <Feed />
-  </main>
-)
+const Home = () => {
+  const [loading, setLoading] = useState(true)
+  const [posts, setPosts] = useState([])
 
-const Home = () => (
-  <div>
-    <LeftNav />
-    <CenterFeed />
-  </div>
-)
+  if (posts.length === 0) {
+    axios.get('/posts').then(resp => {
+      setPosts(resp.data)
+      setLoading(false)
+    })
+  }
+
+  if (loading) {
+    return (
+      <Dimmer active>
+        <Loader>Loading</Loader>
+      </Dimmer>
+    )
+  }
+
+  return (
+    <div>
+      <LeftNav />
+      <CenterFeed posts={posts} />
+    </div>
+  )
+}
 
 export default Home

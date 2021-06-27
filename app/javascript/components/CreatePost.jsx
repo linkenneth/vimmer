@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import axios from 'utils/axios'
-import styled, { css } from '@emotion/styled'
+import { css } from '@emotion/styled'
 
 import {
   Button,
@@ -10,13 +10,7 @@ import {
   TextArea
 } from 'semantic-ui-react'
 
-// TODO
-const Avatar = styled.img`
-  border-radius: 100%;
-  width: 32px;
-  height: 32px;
-`
-
+import Avatar from 'components/Avatar'
 
 // TODO: character limit
 // TODO: on hit enter submit
@@ -25,7 +19,9 @@ const CreatePost = () => {
   const [text, setText] = useState('')
   const doSubmit = (e) => {
     e.preventDefault()
-    axios.post('/posts', { content: text })
+    axios.post('/posts', { content: text }).then(
+      // TODO: update store
+    )
   }
 
   return (

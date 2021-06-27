@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
 
   def index
+    render json: Post.all.map(&:as_json)
   end
 
   ##
@@ -14,6 +15,8 @@ class PostsController < ApplicationController
   def create
     content = params.require(:post).require(:content)
     Post.create!(user: current_user, content: content)
+    # TODO: show info of author
+    render json: p.as_json
   end
 
   ##
