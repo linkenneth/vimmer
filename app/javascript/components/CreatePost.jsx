@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CreatePost from 'components/CreatePost'
+const CreatePost = () => (
+  <div>
 
-const CreatePost = () => {
-
-}
+  </div>
+)
 
 export default CreatePost

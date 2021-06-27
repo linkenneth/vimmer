@@ -9,6 +9,8 @@ import {
 
 import Home from 'pages/Home'
 
+import 'semantic-ui-css/semantic.min.css'
+
 const Nav = () => (
   <nav>
     <ul>

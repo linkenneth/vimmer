@@ -13,7 +13,7 @@ const LeftNav = () => (
 )
 
 // TODO
-const Feed = () => ();
+const Feed = () => (<></>);
 
 const CenterFeed = () => (
   <main>
