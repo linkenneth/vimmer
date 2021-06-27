@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def index
     posts = (
       Post
-        .where(user: current_user.followed_users)
+        .where(user: [current_user] + current_user.followed_users)
         .left_joins(:likes)
         .group('posts.id')
         .order('COUNT(likes.id) DESC')
