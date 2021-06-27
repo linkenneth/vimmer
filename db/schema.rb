@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_190640) do
+ActiveRecord::Schema.define(version: 2021_06_27_194229) do
 
   create_table "follows", force: :cascade do |t|
     t.integer "following_user_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_06_27_190640) do
     t.text "title"
     t.text "content"
     t.integer "user_id"
+    t.integer "repost_id"
+    t.index ["repost_id"], name: "index_posts_on_repost_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
