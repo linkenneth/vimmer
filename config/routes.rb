@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :posts, except: [:new, :edit]
+  resources :posts, except: [:new, :edit] do
+    post 'like'
+  end
+
+  resources :follows, except: [:new, :edit]
 end

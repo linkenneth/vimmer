@@ -41,4 +41,17 @@ class PostsController < ApplicationController
   def destroy
   end
 
+  ##
+  # POST /posts/:id/like
+
+  def like
+    post_id = params.require(:post_id)
+    Like.create!(
+      user: current_user,
+      likable_type: 'Post',
+      likable_id: post_id
+    )
+    head :ok
+  end
+
 end

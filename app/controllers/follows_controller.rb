@@ -13,8 +13,11 @@ class FollowsController < ApplicationController
   # TODO: validation
 
   def create
-    content = params.require(:post).require(:content)
-    follow = Follow.create!(user: current_user, content: content)
+    followed_user_id = params.require(:post).require(:followed_user_id)
+    follow = Follow.create!(
+      following_user: current_user,
+      followed_user: followed_user_id
+    )
     render json: follow.as_json
   end
 
