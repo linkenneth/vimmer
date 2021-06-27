@@ -7,7 +7,7 @@ import {
   Link
 } from 'react-router-dom'
 
-import Login from 'pages/Login'
+import Home from 'pages/Home'
 
 const Nav = () => (
   <nav>
@@ -27,7 +27,7 @@ const Twitter = props => (
     <div>
       <Nav />
       <Switch>
-        <Route path="/"> <div>Home</div> </Route>
+        <Route path="/"><Home /></Route>
       </Switch>
     </div>
   </Router>
