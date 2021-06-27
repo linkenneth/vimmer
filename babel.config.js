@@ -43,7 +43,8 @@ module.exports = function(api) {
           development: isDevelopmentEnv || isTestEnv,
           useBuiltIns: true
         }
-      ]
+      ],
+      '@emotion/babel-preset-css-prop'
     ].filter(Boolean),
     plugins: [
       'babel-plugin-macros',
